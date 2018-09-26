@@ -20,7 +20,7 @@ this resource does not implement `in`
 
 *  `repository` -  The registry path including [project]/[image_name] in Harbor.
 *  `tag` - the image tag
-*  `harbor_scan_thresholds` - json array of acceptable thresholds. Array must contain at least 1 threshold. The format must be severity (CVE Sev Level 1-5) & count (integer) for each desired threshold element in the array.
+*  `harbor_scan_thresholds` - json array of acceptable thresholds. Array must contain at least 1 threshold. The format must be severity (CVE Sev Level 1-5) & count (integer) for each desired threshold element in the array. severity 1 means there are vulnerabilities .
 
 
 ## Usage
