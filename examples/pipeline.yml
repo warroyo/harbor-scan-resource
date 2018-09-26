@@ -1,0 +1,23 @@
+resource_types:
+- name: harbor-scan
+  type: docker-image
+  source:
+    repository: warroyo90/harbor-scan-resource
+    tag: 1.0.0
+
+resources:
+  - name: scan
+    type: harbor-scan
+    source:
+      username: {{harbor_username}}
+      password: {{harbor_password}}
+      harbor_host: harbor.myhost.com
+
+jobs:
+  - name: scan-image
+    plan:
+      - put: scan
+        params:
+          repository: harbor.myhost.com/alpine-base
+          harbor_scan_thresholds: [{"severity": 4,"count": 10},{"severity": 5,"count": 1}]
+          tag: 3.8
